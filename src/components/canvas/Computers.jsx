@@ -112,7 +112,6 @@ function fixNaNGeometry(geometry) {
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.gltf");
 
-  // Clean up geometries after model is loaded
   useEffect(() => {
     if (computer && computer.scene) {
       computer.scene.traverse((child) => {
@@ -124,7 +123,7 @@ const Computers = ({ isMobile }) => {
   }, [computer]);
 
   return (
-    <mesh>
+    <>
       <hemisphereLight intensity={0.15} groundColor="black" />
       <spotLight
         position={[-20, 50, 10]}
@@ -141,9 +140,10 @@ const Computers = ({ isMobile }) => {
         position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
         rotation={[-0.01, -0.2, -0.1]}
       />
-    </mesh>
+    </>
   );
 };
+
 
 const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
