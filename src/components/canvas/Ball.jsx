@@ -56,35 +56,94 @@
 
 // export default BallCanvas;
 
+// import React, { Suspense, useEffect } from "react";
+// import { Canvas } from "@react-three/fiber";
+// import {
+//   Decal,
+//   Float,
+//   OrbitControls,
+//   Preload,
+//   useTexture,
+// } from "@react-three/drei";
+// import CanvasLoader from "../Loader";
+
+// const Ball = ({ imgUrl }) => {
+
+//   // 🔍 Debug log FIRST — before texture loading
+//   useEffect(() => {
+//     console.log("🔍 Ball icon received:", imgUrl);
+//   }, [imgUrl]);
+
+//   const [decal] = useTexture([imgUrl]);
+//  // fallback texture
+
+//   // Warn if texture missing
+//   useEffect(() => {
+//     if (!imgUrl) {
+//       console.warn("⚠️ Missing or invalid texture for Ball:", imgUrl);
+//     }
+//   }, [imgUrl]);
+
+
+
+//   return (
+//     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
+//       <ambientLight intensity={0.25} />
+//       <directionalLight position={[0, 0, 0.05]} />
+
+//       <mesh castShadow receiveShadow scale={2.75}>
+//         <icosahedronGeometry args={[1, 1]} />
+//         <meshStandardMaterial
+//           color="#fff8eb"
+//           polygonOffset
+//           polygonOffsetFactor={-5}
+//           flatShading
+//         />
+
+//         {/* Render decal only if map is valid */}
+//         {decal && decal.image && (
+//           <Decal
+//             position={[0, 0, 1]}
+//             rotation={[2 * Math.PI, 0, 6.25]}
+//             scale={1}
+//             map={decal}
+//             flatShading
+//           />
+//         )}
+//       </mesh>
+//     </Float>
+//   );
+// };
+
+// const BallCanvas = ({ icon }) => {
+//   return (
+//     <Canvas frameloop="demand" dpr={[1, 2]} gl={{ preserveDrawingBuffer: true }}>
+//       <Suspense fallback={<CanvasLoader />}>
+//         <OrbitControls enableZoom={false} />
+//         <Ball imgUrl={icon} />
+//       </Suspense>
+//       <Preload all />
+//     </Canvas>
+//   );
+// };
+
+// export default BallCanvas;
+
 import React, { Suspense, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
-import {
-  Decal,
-  Float,
-  OrbitControls,
-  Preload,
-  useTexture,
-} from "@react-three/drei";
+import { Decal, Float, OrbitControls, Preload, useTexture, Html } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Ball = ({ imgUrl }) => {
-
-  // 🔍 Debug log FIRST — before texture loading
   useEffect(() => {
     console.log("🔍 Ball icon received:", imgUrl);
   }, [imgUrl]);
 
   const [decal] = useTexture([imgUrl]);
- // fallback texture
 
-  // Warn if texture missing
   useEffect(() => {
-    if (!imgUrl) {
-      console.warn("⚠️ Missing or invalid texture for Ball:", imgUrl);
-    }
+    if (!imgUrl) console.warn("⚠️ Missing texture for Ball:", imgUrl);
   }, [imgUrl]);
-
-
 
   return (
     <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
@@ -100,8 +159,7 @@ const Ball = ({ imgUrl }) => {
           flatShading
         />
 
-        {/* Render decal only if map is valid */}
-        {decal && decal.image && (
+        {decal && decal.image ? (
           <Decal
             position={[0, 0, 1]}
             rotation={[2 * Math.PI, 0, 6.25]}
@@ -109,6 +167,15 @@ const Ball = ({ imgUrl }) => {
             map={decal}
             flatShading
           />
+        ) : (
+          // DOM fallback displayed over the canvas if texture isn't ready
+          <Html center style={{ pointerEvents: "none" }}>
+            <img
+              src={imgUrl}
+              alt="fallback"
+              style={{ width: 48, height: 48, objectFit: "contain" }}
+            />
+          </Html>
         )}
       </mesh>
     </Float>
@@ -128,3 +195,4 @@ const BallCanvas = ({ icon }) => {
 };
 
 export default BallCanvas;
+
