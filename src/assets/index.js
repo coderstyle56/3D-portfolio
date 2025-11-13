@@ -19,7 +19,7 @@ import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
+import threejs from "./tech/threejs.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -31,14 +31,12 @@ import DecentraID from "./DecentraID.png";
 import muvii from "./muvii.png";
 
 export {
-  // logo,
   backend,
   creator,
   mobile,
   web,
   github,
   menu,
-  close,
   css,
   docker,
   figma,
@@ -60,3 +58,5 @@ export {
   DecentraID,
   muvii,
 };
+
+export { close };
