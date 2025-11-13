@@ -1,0 +1,15 @@
+# Query: herobg.png
+# ContextLines: 1
+
+2 results - 2 files
+
+README.md:
+  753        backgroundImage: {
+  754:         url('/assets/herobg.png')
+
+  755        },
+
+tailwind.config.cjs:
+  21        backgroundImage: {
+  22:         "hero-pattern": "url('/assets/herobg.png')",
+  23  

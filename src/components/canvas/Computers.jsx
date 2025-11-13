@@ -110,7 +110,7 @@ function fixNaNGeometry(geometry) {
 }
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("/desktop_pc/scene.gltf");
 
   useEffect(() => {
     if (computer && computer.scene) {

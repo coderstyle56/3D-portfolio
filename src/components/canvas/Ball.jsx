@@ -74,7 +74,8 @@ const Ball = ({ imgUrl }) => {
     console.log("🔍 Ball icon received:", imgUrl);
   }, [imgUrl]);
 
-  const [decal] = useTexture(imgUrl ? [imgUrl] : ["/placeholder.png"]); // fallback texture
+  const [decal] = useTexture([imgUrl]);
+ // fallback texture
 
   // Warn if texture missing
   useEffect(() => {
