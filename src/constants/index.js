@@ -42,13 +42,27 @@ export const experiences = [
       "Worked in a collaborative Git-based environment, practicing agile and CI/CD workflows.",
     ],
   },
+  {
+    title: "Software Developer Intern",
+    company_name: "ixamBee",
+    icon:"/assets/company/ixambeeicon.png",
+    iconBg: '#383E56',
+    date: "Nov 2025 - Dec 2025",
+    points: [
+      "Migrated a live SEO crawler & website audit system from MongoDB to PostgreSQL, redesigning schemas with JSONB for flexible, document-style storage.",
+      "Built a Python-based Nginx log parser using Regex to extract, categorize, and track errors with automated, incremental CSV reporting.",
+      "Developed Django-based CRUD modules with one-to-many and many-to-many relationships using Django ORM.",
+      "Gained hands-on exposure to system design fundamentals including caching strategies (LRU/LFU), load balancing, and reverse proxy workflows."
+    ]
+
+  }
 ];
 
 export const projects = [
   {
     name: "salonX",
     description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+    "Engineered a production-grade salon booking system with conflict-free, duration-based scheduling using server-side validation. Implemented secure authentication, relational database design, and scalable APIs to manage users, services, barbers, and real-time bookings.",
     tags: [
       { name: "nextjs", color: "blue-text-gradient" },
       { name: "mongodb", color: "green-text-gradient" },
@@ -60,7 +74,7 @@ export const projects = [
   {
     name: "DecentraID",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+    "Built a blockchain-based certificate verification system using Ethereum, SHA-256, and Web3.js to ensure tamper-proof identity validation. Developed a responsive React frontend and integrated backend APIs for secure, asynchronous verification workflows.               ",
     tags: [
       { name: "react", color: "blue-text-gradient" },
       { name: "solidity", color: "green-text-gradient" },
@@ -73,7 +87,7 @@ export const projects = [
   {
     name: "Muvii",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+    "Built a responsive movie discovery platform using Next.js, React, and Tailwind CSS for mood- and genre-based exploration with scalable UI architecture. Currently developing a custom backend (no TMDB/IMDB dependency) to support niche categories and future AI-driven recommendations.",
     tags: [
       { name: "nextjs", color: "blue-text-gradient" },
       { name: "mongodb", color: "green-text-gradient" },
@@ -81,9 +95,8 @@ export const projects = [
       { name: "restapi", color: "brown-text-gradient" },
     ],
     image: "/assets/muvii.png",
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/coderstyle56/muvii-site",
   },
 ];
 
 // export { services, technologies, experiences, projects };
-
